@@ -1,0 +1,15 @@
+okta:
+    baseUrl: "https://dev-283090.oktapreview.com"
+    issuer: "https://dev-283090.oktapreview.com/oauth2/ausgdlwihzHvyn4bx0h7"
+    clientId: "0oagcpnmyqFivRiem0h7"
+    idps:
+        - id: "0oagcr03oi4gIYl2y0h7"
+          type: facebook
+        - id: "0oagcrnr052mayZyR0h7"
+          type: google
+
+assets:
+    mappings:
+        /assets: /
+    overrides:
+        / : ../../javascript/node_modules/webapp/dist

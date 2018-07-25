@@ -1,0 +1,10 @@
+plugins {
+    id 'com.moowork.node' version '1.2.0' apply false
+    id 'com.palantir.git-version' version '0.11.0'
+    id 'nebula.dependency-recommender' version '5.1.0' apply false
+    id 'org.inferred.processors' version '1.2.16' apply false
+}
+
+allprojects {
+    version gitVersion()
+}

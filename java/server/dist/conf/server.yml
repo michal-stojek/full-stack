@@ -1,0 +1,5 @@
+assets:
+    mappings:
+        /assets: /
+    overrides:
+        / : ../web

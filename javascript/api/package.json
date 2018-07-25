@@ -1,0 +1,20 @@
+{
+    "name": "api",
+    "version": "0.0.1",
+    "author": "Michal Stojek",
+    "license": "MIT",
+    "private": true,
+    "module": "lib/api.js",
+    "main": "lib/api.js",
+    "types": "lib/index.d.ts",
+    "devDependencies": {
+        "ts-loader": "^5.1.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.3"
+    },
+    "dependencies": {
+        "@types/promise": "^7.1.30",
+        "@types/whatwg-fetch": "^0.0.33",
+        "whatwg-fetch": "^3.0.0"
+    }
+}

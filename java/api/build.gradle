@@ -1,0 +1,9 @@
+apply from: "${rootProject.rootDir}/java/gradle/java.gradle"
+apply from: "${rootProject.rootDir}/java/gradle/immutables.gradle"
+
+dependencies {
+    implementation 'com.okta.jwt:okta-jwt-verifier'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'io.dropwizard:dropwizard-auth'
+    implementation 'javax.ws.rs:javax.ws.rs-api'
+}

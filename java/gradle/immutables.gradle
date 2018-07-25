@@ -1,0 +1,7 @@
+apply plugin: 'org.inferred.processors'
+
+dependencies {
+    implementation project(':java:immutables')
+
+    processor 'org.immutables:value'
+}
