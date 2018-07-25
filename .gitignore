@@ -1,0 +1,13 @@
+**/build/
+**/generated_src/
+**/generated_test/
+**/node_modules/
+**/out/
+
+*.iml
+*.ipr
+*.iws
+
+.gradle
+
+yarn-error.log

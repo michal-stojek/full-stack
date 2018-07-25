@@ -1,0 +1,8 @@
+apply plugin: 'com.moowork.node'
+
+node {
+  version = '10.10.0'
+  yarnVersion = '1.9.4'
+  download = true
+  nodeModulesDir = new File('node_modules')
+}

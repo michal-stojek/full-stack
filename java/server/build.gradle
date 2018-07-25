@@ -1,0 +1,29 @@
+apply from: "${rootProject.rootDir}/java/gradle/java.gradle"
+apply from: "${rootProject.rootDir}/java/gradle/immutables.gradle"
+
+apply plugin: 'application'
+
+run {
+    mainClassName = 'org.mistylabs.HelloWorldApplication'
+    args 'server', "${projectDir}/dev/conf/server.yml"
+}
+
+dependencies {
+    implementation project(':java:api')
+
+    implementation 'io.dropwizard:dropwizard-assets'
+    implementation 'io.dropwizard:dropwizard-auth'
+    implementation 'io.dropwizard:dropwizard-core'
+    implementation 'io.dropwizard-bundles:dropwizard-configurable-assets-bundle'
+}
+
+distZip.dependsOn(':javascript:yarn_build', 'check')
+
+distributions {
+    main {
+        contents {
+            from('dist') {}
+            from('../../javascript/node_modules/webapp/dist') { into { 'web' } }
+        }
+    }
+}

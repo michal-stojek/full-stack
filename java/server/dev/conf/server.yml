@@ -1,0 +1,3 @@
+assets:
+  overrides:
+    / : ../../javascript/node_modules/webapp/dist

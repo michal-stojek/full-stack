@@ -1,0 +1,5 @@
+apply from: "${rootProject.rootDir}/java/gradle/java.gradle"
+
+dependencies {
+    compileOnly 'org.immutables:value'
+}

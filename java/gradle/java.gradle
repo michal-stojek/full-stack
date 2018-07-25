@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'idea'
+apply plugin: 'nebula.dependency-recommender'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyRecommendations {
+    propertiesFile file: file("${rootProject.rootDir}/java/versions.props")
+}
+
+checkstyle {
+    configDir file("${rootProject.rootDir}/java/checkstyle")
+}
+
+findbugs {
+    excludeFilter file("${rootProject.rootDir}/java/findbugs/excludeFilter.xml")
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+tasks.withType(Pmd){
+    reports{
+        xml.enabled false
+        html.enabled true
+    }
+}

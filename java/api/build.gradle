@@ -1,0 +1,6 @@
+apply from: "${rootProject.rootDir}/java/gradle/java.gradle"
+apply from: "${rootProject.rootDir}/java/gradle/immutables.gradle"
+
+dependencies {
+    implementation 'javax.ws.rs:javax.ws.rs-api'
+}
