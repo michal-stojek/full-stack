@@ -17,7 +17,6 @@ export class OktaSignInWidget extends React.Component<Props, {}> {
         const el = ReactDOM.findDOMNode(this);
         (this as any).widget = new OktaSignIn({
             authParams: {
-                display: "popup",
                 issuer: this.props.configuration.issuer,
                 responseType: [ "id_token", "token" ],
             },
@@ -26,7 +25,8 @@ export class OktaSignInWidget extends React.Component<Props, {}> {
             idps: this.props.configuration.idps,
             redirectUri: window.location.origin + "/callback",
         });
-        (this as any).widget.renderEl({el}, this.props.onSuccess);
+        (this as any).widget.renderEl({el}, this.props.onSuccess,
+            (err) => window.console.log(err));
     }
 
     public componentWillUnmount() {

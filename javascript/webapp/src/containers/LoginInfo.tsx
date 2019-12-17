@@ -1,12 +1,11 @@
-import { Auth, withAuth } from "@okta/okta-react";
+import { OktaAuth, withAuth } from "@okta/okta-react";
 import * as React from "react";
 import { connect } from "react-redux";
 
 import { AppState } from "../state";
 
 interface Props {
-    auth: any;
-    isAuthenticated: boolean;
+    auth: OktaAuth;
 }
 
 interface State {
@@ -14,7 +13,6 @@ interface State {
 }
 
 const mapStateToProps = (state: AppState) => ({
-    isAuthenticated: state.auth !== null,
 }) as Props;
 
 const mapDispatchToProps = (dispatch) => ({
@@ -48,7 +46,7 @@ class UnauthedLoginInfoContainer extends React.Component<Props, State> {
     private async checkAuthentication() {
         const isAuthenticated = await this.props.auth.isAuthenticated();
         window.console.log(await this.props.auth.isAuthenticated());
-        window.console.log(await this.props.auth.getAccessToken());
+        window.console.log(this.props.auth);
         if (isAuthenticated !== this.state.isAuthenticated) {
             this.setState({ isAuthenticated });
         }

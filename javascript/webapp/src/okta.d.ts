@@ -1,9 +1,9 @@
-// declare module "@okta/okta-react";
+declare module "@okta/okta-auth-js";
 declare module "@okta/okta-react" {
     import { Component } from "react";
 
     interface AccessToken {}
-    interface Auth {
+    interface OktaAuth {
         getAccessToken(): Promise<AccessToken>;
         isAuthenticated(): Promise<boolean>;
     }

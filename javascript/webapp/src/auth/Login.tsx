@@ -1,4 +1,4 @@
-import { Auth, withAuth } from "@okta/okta-react";
+import { OktaAuth, withAuth } from "@okta/okta-react";
 import { OktaConfiguration } from "api";
 import * as React from "react";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ import { AppState } from "../state";
 import { OktaSignInWidget } from "./OktaSignInWidget";
 
 interface Props {
-    auth: any;
+    auth: OktaAuth;
     oktaClient: any;
 
     isAuthenticated: boolean;
@@ -19,8 +19,7 @@ interface Props {
 }
 
 const mapStateToProps = (state: AppState) => ({
-    // isAuthenticated: state.auth !== null,
-    oktaClient: state.oktaClient,
+    // oktaClient: state.oktaClient,
     oktaConfiguration: state.configuration.oktaConfiguration,
 }) as Props;
 
@@ -35,8 +34,8 @@ class DisconnectedLogin extends React.Component<Props, {}> {
                    configuration = { this.props.oktaConfiguration }
                    onSuccess = { (response) =>  {
                        window.console.log(response[0]);
-                       this.props.oktaClient.tokenManager.add("idToken", response[0]);
-                       this.props.oktaClient.tokenManager.add("accessToken", response[1]);
+                       (this.props.auth as any)._oktaAuth.tokenManager.add("idToken", response[0]);
+                       (this.props.auth as any)._oktaAuth.tokenManager.add("accessToken", response[1]);
                        this.props.onSuccess(response);
                    } }
                />;

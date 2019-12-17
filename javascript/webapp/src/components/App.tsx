@@ -21,7 +21,6 @@ const styles = (theme: Theme) => ({
 
 interface Props {
     classes: any;
-    isAuthenticated: boolean;
     isLoginDialogVisible: boolean;
 
     hideLoginDialog: () => void;
@@ -51,7 +50,7 @@ class UnstyledApp extends React.Component<Props, {}> {
                             color="inherit"
                             onClick = { this.props.showLoginDialog }
                         >
-                            { this.props.isAuthenticated ? "Logout" : "Login" }
+                            "Logout" : "Login"
                         </Button>
                         <Dialog
                             open = { this.props.isLoginDialogVisible }

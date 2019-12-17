@@ -12,7 +12,6 @@ import { SplashScreen } from "../components/SplashScreen";
 
 interface Props {
     configuration: WebappConfiguration;
-    isAuthenticated: boolean;
     isLoginDialogVisible: boolean;
 
     hideLoginDialog: () => void;
@@ -21,7 +20,6 @@ interface Props {
 
 const mapStateToProps = (state: AppState) => ({
     configuration: state.configuration,
-    isAuthenticated: state.auth !== null,
     isLoginDialogVisible: state.isLoginDialogVisible,
 }) as Props;
 
@@ -42,7 +40,6 @@ class DiconnectedAppContainer extends React.Component<Props, {}> {
                   <Route path = "/callback" component = { ImplicitCallback } />
 
                   <App
-                      isAuthenticated = { this.props.isAuthenticated }
                       isLoginDialogVisible = { this.props.isLoginDialogVisible }
                       hideLoginDialog = { this.props.hideLoginDialog }
                       showLoginDialog = { this.props.showLoginDialog }
