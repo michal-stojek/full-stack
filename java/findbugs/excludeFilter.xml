@@ -1,5 +1,9 @@
 <FindBugsFilter>
     <Match>
-        <Class name="~.*\$Immutable.*" />
+        <Or>
+            <Class name="~.*\$Immutable.*" />
+            <Class name="org.mistylabs.auth.AccessToken" />
+            <Class name="org.mistylabs.auth.UserIdentifier" />
+        </Or>
     </Match>
 </FindBugsFilter>

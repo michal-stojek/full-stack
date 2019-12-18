@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
         extensions: [ ".ts", ".tsx", ".js" ]
     },
     plugins: [
-        new CleanWebpackPlugin("dist"),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: "./index.htm",
             template: "./src/index.htm"

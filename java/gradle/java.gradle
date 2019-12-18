@@ -14,12 +14,14 @@ dependencyRecommendations {
 }
 
 checkstyle {
-    configDir file("${rootProject.rootDir}/java/checkstyle")
+    toolVersion '8.27'
+    configFile file("${rootProject.rootDir}/java/checkstyle/checkstyle.xml")
 }
 
-//findbugs {
-//    excludeFilter file("${rootProject.rootDir}/java/findbugs/excludeFilter.xml")
-//}
+spotbugs {
+    toolVersion = '3.1.10'
+    excludeFilter = file("$rootProject.rootDir/java/findbugs/excludeFilter.xml")
+}
 
 tasks.withType(Checkstyle) {
     reports {
@@ -28,12 +30,12 @@ tasks.withType(Checkstyle) {
     }
 }
 
-//tasks.withType(FindBugs) {
-//    reports {
-//        xml.enabled false
-//        html.enabled true
-//    }
-//}
+tasks.withType(SpotBugsTask) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
 
 tasks.withType(Pmd){
     reports{

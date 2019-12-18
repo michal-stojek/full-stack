@@ -6,6 +6,10 @@ plugins {
     id 'org.inferred.processors' version '3.1.0' apply false
 }
 
+ext {
+    SpotBugsTask = com.github.spotbugs.SpotBugsTask
+}
+
 allprojects {
     version gitVersion()
 }

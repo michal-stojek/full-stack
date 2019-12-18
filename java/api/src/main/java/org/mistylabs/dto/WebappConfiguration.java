@@ -7,12 +7,12 @@ import org.immutables.value.Value;
 @JsonDeserialize(builder = WebappConfiguration.Builder.class)
 public interface WebappConfiguration {
 
-    OktaConfiguration getOktaConfiguration();
+  String getMessage();
 
-    class Builder extends WebappConfigurationBuilder {}
+  class Builder extends WebappConfigurationBuilder {
+  }
 
-    static Builder builder() {
-        return new Builder();
-    }
-
+  static Builder builder() {
+    return new Builder();
+  }
 }

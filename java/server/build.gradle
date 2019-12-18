@@ -11,9 +11,7 @@ run {
 dependencies {
     implementation project(':java:api')
 
-    implementation 'com.okta.jwt:okta-jwt-verifier'
     implementation 'io.dropwizard:dropwizard-assets'
-    implementation 'io.dropwizard:dropwizard-auth'
     implementation 'io.dropwizard:dropwizard-core'
     implementation 'io.dropwizard-bundles:dropwizard-configurable-assets-bundle'
     implementation 'org.tuckey:urlrewritefilter'

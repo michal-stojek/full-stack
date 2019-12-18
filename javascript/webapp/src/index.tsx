@@ -6,12 +6,11 @@ import { Action, applyMiddleware, createStore, Middleware } from "redux";
 import logger from "redux-logger";
 import thunk, { ThunkDispatch } from "redux-thunk";
 
-import { GetWebappConfiguration } from "./actions";
-import { AppContainer } from "./containers/App";
-import { rootReducer } from "./reducers";
+import { App } from "./components/App";
 import { AppState } from "./state";
 
 import "./index.scss";
+import { rootReducer } from "./redux";
 
 const middlewares: Middleware[] = [ thunk ];
 
@@ -20,12 +19,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const store = createStore(rootReducer, applyMiddleware(...middlewares));
-(store.dispatch as ThunkDispatch<AppState, {}, Action>)(new GetWebappConfiguration().invoke());
 
 ReactDOM.render(
     <Provider store={ store }>
         <BrowserRouter>
-            <AppContainer />
+            <App />
         </BrowserRouter>
     </Provider>,
     document.getElementById("root"));
